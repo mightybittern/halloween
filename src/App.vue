@@ -2,7 +2,7 @@
 import { onMounted } from 'vue';
 
 onMounted(() => {
-  const audio = new Audio('../public/assets/spooky.mp3');
+  const audio = new Audio('/assets/spooky.mp3');
   audio.loop = true;
   audio.volume = 0.5;
 
@@ -36,8 +36,8 @@ onMounted(() => {
       <time>🕕 18:00 – 21:00</time><br />
       <address>🏚️ Haunted House – Kosti Palama 47, Ap 23</address>
       <p>🧛 Your Host: CALLIOPE KALENDA</p>
-      <audio src="../public/assets/spooky.mp3" muted autoplay loop></audio>
-      <video type="video/mp4" class="video" loop playsinline muted autoplay src="../public/assets/video-bg.mp4"></video>
+      <audio src="/assets/spooky.mp3" muted autoplay loop></audio>
+      <video type="video/mp4" class="video" loop playsinline muted autoplay src="/assets/video-bg.mp4"></video>
     </footer>
   </div>
 
@@ -49,6 +49,7 @@ onMounted(() => {
   width: calc(340px - var(--gap));
   max-width: 600px;
   height: 100%;
+  margin-top: 20px;
   margin-inline: auto;
   padding: var(--gap);
   text-align: center;
@@ -80,7 +81,6 @@ onMounted(() => {
   font-family: "Nosifer", cursive;
   font-size: 1.6rem; /* readable on small screens */
   color: #ff6600;
-  text-shadow: 0 0 4px #ff6600, 0 0 10px #ff3300;
   animation: flicker 2s infinite alternate;
   margin-bottom: 1rem;
   line-height: 1.2;
@@ -91,7 +91,6 @@ onMounted(() => {
   font-family: "Nosifer", cursive;
   font-size: 1.3rem;
   color: #9d4edd;
-  text-shadow: 0 0 6px #9d4edd, 0 0 10px #5a189a;
   margin-bottom: 0.8rem;
   line-height: 1.3;
 }

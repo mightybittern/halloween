@@ -1,3 +1,7 @@
+html {
+  background: #12001a;
+}
+
 body {
   position: relative;
   display: flex;
@@ -7,8 +11,8 @@ body {
   height: 100vh;
   background: #12001a;
   background: image-set(
-    url("public/assets/bg-big.webp") type("image/webp"),
-    url("public/assets/bg-big.jpg") type("image/jpeg")
+    url("/assets/bg-big.webp") type("image/webp"),
+    url("/assets/bg-big.jpg") type("image/jpeg")
   );
   background-size: cover;
   background-position: center;
