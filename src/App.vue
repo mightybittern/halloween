@@ -2,21 +2,22 @@
 import { onMounted } from 'vue';
 
 onMounted(() => {
-  const audio = new Audio('/assets/spooky.mp3');
+  const audio = new Audio('/halloween/assets/spooky.mp3');
   audio.loop = true;
   audio.volume = 0.5;
 
-  // Play on first click
   const playAudio = () => {
-    audio.play();
+    audio.play().catch(err => console.log('Audio blocked:', err));
     window.removeEventListener('click', playAudio);
   };
 
+  // Wait for user interaction
   window.addEventListener('click', playAudio);
 });
 </script>
 
 <template>
+  <audio src="/halloween/assets/spooky.mp3" autoplay loop></audio>
   <div class="container">
     <header class="header">
       <h1>Spooktacular INVITATION</h1>
@@ -36,22 +37,21 @@ onMounted(() => {
       <time>🕕 18:00 – 21:00</time><br />
       <address>🏚️ Haunted House – <a href="https://www.google.com/maps/place/Fivi+Court/@34.6900599,33.0521159,19.5z/data=!4m15!1m8!3m7!1s0x14e73376ca7ac991:0xc091c8f21d710d7!2sKosti+Palama,+Cyprus!3b1!8m2!3d34.6984727!4d33.0395582!16s%2Fg%2F1tcyznd1!3m5!1s0x14e7330049fa3bdd:0x330186cd334d06c2!8m2!3d34.690047!4d33.052539!16s%2Fg%2F11x7wgkhfv?entry=ttu&g_ep=EgoyMDI1MDkyOC4wIKXMDSoASAFQAw%3D%3D">Kosti Palama 47, Ap 23</a></address>
       <p>🧛 Your Host: CALLIOPE KALENDA</p>
-      <audio src="/assets/spooky.mp3" muted autoplay loop></audio>
-      <video type="video/mp4" class="video" loop playsinline muted autoplay src="/assets/video-bg.mp4"></video>
     </footer>
+
+    <video type="video/mp4" class="video" loop playsinline muted autoplay src="/assets/video-bg.mp4"></video>
   </div>
 
 </template>
 
 <style scoped>
 .container {
-  --gap: 10px;
-  width: calc(340px - var(--gap));
-  max-width: 600px;
+    width: 80vw; /* 90% of viewport width */
+    max-width: 600px;
+    padding: 1rem;
   height: auto;
   margin-top: 100px;
   margin-inline: auto;
-  padding: var(--gap);
   text-align: center;
   color: #e6e6e6;
   border-radius: 12px;
@@ -63,6 +63,7 @@ onMounted(() => {
   font-family: "Poppins", sans-serif;
   animation: pulse-shadow 4s infinite alternate ease-in-out;
   overflow: hidden;
+  position: relative;
 }
 
 .video {
@@ -74,7 +75,16 @@ onMounted(() => {
   height: auto;
   mix-blend-mode: color-dodge;
   border-radius: 12px;
-  clip-path: inset(0px round 12px);
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    clip-path: inset(0 round 12px);
+  }
 }
 
 /* Title */
@@ -150,8 +160,6 @@ footer {
 
 @media (min-width: 600px) {
   .container {
-    padding: calc(var(--gap) * 2);
-    border-radius: 15px;
     box-shadow: 0 0 25px rgba(200, 0, 255, 0.4),
     0 0 50px rgba(0, 255, 140, 0.3);
   }
