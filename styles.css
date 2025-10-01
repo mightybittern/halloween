@@ -5,6 +5,7 @@ html, body {
   height: 100%;
   font-family: "Poppins", sans-serif;
   background: #12001a;
+  overflow: hidden;
 }
 
 a {

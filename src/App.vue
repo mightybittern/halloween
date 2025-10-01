@@ -39,7 +39,7 @@ onMounted(() => {
       </main>
 
       <footer>
-        <time>🕕Friday, October 31 @ 18:00 – 21:00</time><br />
+        <time>🕕 Friday, October 31 @ 18:00 – 21:00</time><br />
         <a href="https://maps.app.goo.gl/Lnam2NSZPBjKixaD8" target="_blank" rel="noopener noreferrer">
           🏚️ Haunted House</a>
         <p>🧛 Your Host: CALLIOPE KALENDA</p>
@@ -86,7 +86,7 @@ onMounted(() => {
 .container {
   position: relative;
   z-index: 1;
-  width: 90%;
+  width: 80%;
   max-width: 600px;
   max-height: 90%;
   padding: 1.5rem;
@@ -98,6 +98,12 @@ onMounted(() => {
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(200,0,255,0.3), 0 0 40px rgba(0,255,140,0.2);
   animation: pulse-shadow 4s infinite alternate ease-in-out;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }
 
 /* Header */
