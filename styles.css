@@ -8,15 +8,9 @@ a {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background: #12001a;
-  background: image-set(
-    url("/assets/bg-big.webp") type("image/webp"),
-    url("/assets/bg-big.jpg") type("image/jpeg")
-  );
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: #12001a; /* fallback */
+  overflow: hidden;
 }

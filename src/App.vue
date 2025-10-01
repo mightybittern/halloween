@@ -11,80 +11,87 @@ onMounted(() => {
     window.removeEventListener('click', playAudio);
   };
 
-  // Wait for user interaction
   window.addEventListener('click', playAudio);
 });
 </script>
 
 <template>
-  <audio src="/halloween/assets/spooky.mp3" autoplay loop></audio>
-  <div class="container">
-    <header class="header">
-      <h1>Spooktacular INVITATION</h1>
-    </header>
-    <main class="main">
-      <h2>HALLOWEEN PARTY</h2>
-      <p>
-        Enter if you dare... <br />
-        You are <span class="">creepily summoned</span> to a night of
-        frights, laughs, and glowing jack-o'-lantern grins.
-      </p>
-      <p>
-        Costumes are mandatory—don’t let the pumpkin monster catch you without one! 😈
-      </p>
-    </main>
-    <footer>
-      <time>🕕 18:00 – 21:00</time><br />
-      <address>🏚️ Haunted House – <a href="https://www.google.com/maps/place/Fivi+Court/@34.6900599,33.0521159,19.5z/data=!4m15!1m8!3m7!1s0x14e73376ca7ac991:0xc091c8f21d710d7!2sKosti+Palama,+Cyprus!3b1!8m2!3d34.6984727!4d33.0395582!16s%2Fg%2F1tcyznd1!3m5!1s0x14e7330049fa3bdd:0x330186cd334d06c2!8m2!3d34.690047!4d33.052539!16s%2Fg%2F11x7wgkhfv?entry=ttu&g_ep=EgoyMDI1MDkyOC4wIKXMDSoASAFQAw%3D%3D">Kosti Palama 47, Ap 23</a></address>
-      <p>🧛 Your Host: CALLIOPE KALENDA</p>
-    </footer>
-
+  <div class="wrapper">
+    <!-- Optional background video -->
     <video type="video/mp4" class="video" loop playsinline muted autoplay src="/assets/video-bg.mp4"></video>
-  </div>
 
+    <div class="container">
+      <header class="header">
+        <h1>Spooktacular INVITATION</h1>
+      </header>
+      <main class="main">
+        <h2>HALLOWEEN PARTY</h2>
+        <p>
+          Enter if you dare... <br />
+          You are <span class="">creepily summoned</span> to a night of
+          frights, laughs, and glowing jack-o'-lantern grins.
+        </p>
+        <p>
+          Costumes are mandatory—don’t let the pumpkin monster catch you without one! 😈
+        </p>
+      </main>
+      <footer>
+        <time>🕕 18:00 – 21:00</time><br />
+          <a href="https://maps.app.goo.gl/Lnam2NSZPBjKixaD8" target="_blank" rel="noopener noreferrer">🏚️ Haunted House</a>
+        <p>🧛 Your Host: CALLIOPE KALENDA</p>
+      </footer>
+    </div>
+  </div>
 </template>
 
+
 <style scoped>
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: image-set(
+    url("/assets/bg-big.webp") type("image/webp"),
+    url("/assets/bg-big.jpg") type("image/jpeg")
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Video */
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: color-dodge;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Existing container */
 .container {
-    width: 80vw; /* 90% of viewport width */
-    max-width: 600px;
-    padding: 1rem;
-  height: auto;
-  margin-top: 100px;
-  margin-inline: auto;
+  position: relative;
+  z-index: 1; /* above video */
+  width: 80vw;
+  max-height: 80vh;
+  max-width: 600px;
+  padding: 1rem;
   text-align: center;
   color: #e6e6e6;
-  border-radius: 12px;
   background-color: rgba(41, 2, 50, 0.47);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 0 20px rgba(200, 0, 255, 0.3),
-  0 0 40px rgba(0, 255, 140, 0.2);
-  font-family: "Poppins", sans-serif;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(200,0,255,0.3), 0 0 40px rgba(0,255,140,0.2);
   animation: pulse-shadow 4s infinite alternate ease-in-out;
-  overflow: hidden;
-  position: relative;
-}
-
-.video {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1200px;
-  height: auto;
-  mix-blend-mode: color-dodge;
-  border-radius: 12px;
-
-  &::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    clip-path: inset(0 round 12px);
-  }
 }
 
 /* Title */
