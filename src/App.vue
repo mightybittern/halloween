@@ -98,7 +98,6 @@ onMounted(() => {
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(200,0,255,0.3), 0 0 40px rgba(0,255,140,0.2);
   animation: pulse-shadow 4s infinite alternate ease-in-out;
-  overflow-y: auto; /* scroll inside if content exceeds */
 }
 
 /* Header */
