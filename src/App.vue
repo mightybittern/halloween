@@ -34,7 +34,7 @@ onMounted(() => {
     </main>
     <footer>
       <time>🕕 18:00 – 21:00</time><br />
-      <address>🏚️ Haunted House – Kosti Palama 47, Ap 23</address>
+      <address>🏚️ Haunted House – <a href="https://www.google.com/maps/place/Fivi+Court/@34.6900599,33.0521159,19.5z/data=!4m15!1m8!3m7!1s0x14e73376ca7ac991:0xc091c8f21d710d7!2sKosti+Palama,+Cyprus!3b1!8m2!3d34.6984727!4d33.0395582!16s%2Fg%2F1tcyznd1!3m5!1s0x14e7330049fa3bdd:0x330186cd334d06c2!8m2!3d34.690047!4d33.052539!16s%2Fg%2F11x7wgkhfv?entry=ttu&g_ep=EgoyMDI1MDkyOC4wIKXMDSoASAFQAw%3D%3D">Kosti Palama 47, Ap 23</a></address>
       <p>🧛 Your Host: CALLIOPE KALENDA</p>
       <audio src="/assets/spooky.mp3" muted autoplay loop></audio>
       <video type="video/mp4" class="video" loop playsinline muted autoplay src="/assets/video-bg.mp4"></video>
@@ -48,8 +48,8 @@ onMounted(() => {
   --gap: 10px;
   width: calc(340px - var(--gap));
   max-width: 600px;
-  height: 100%;
-  margin-top: 20px;
+  height: auto;
+  margin-top: 100px;
   margin-inline: auto;
   padding: var(--gap);
   text-align: center;
@@ -70,10 +70,11 @@ onMounted(() => {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 1000px;
+  width: 1200px;
   height: auto;
   mix-blend-mode: color-dodge;
   border-radius: 12px;
+  clip-path: inset(0px round 12px);
 }
 
 /* Title */
